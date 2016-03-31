@@ -43,6 +43,11 @@ class WpApi
     {
         return $this->_get('taxonomies/post_tag/terms');
     }
+    
+    public function post_comments($post_id)
+    {
+        return $this->_get('posts/'.$post_id."/comments");
+    }
 
     public function category_posts($slug, $page = null)
     {
