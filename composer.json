@@ -12,7 +12,8 @@
     "require": {
         "php": ">=5.4.0",
         "illuminate/support": "~5.0|~5.1",
-        "guzzlehttp/guzzle": "~5.0"
+        "guzzlehttp/guzzle": "~5.0",
+        "remic/guzzlecache": "~0.2"
     },
     "autoload": {
         "psr-0": {
