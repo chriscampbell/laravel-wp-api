@@ -34,7 +34,8 @@ class LaravelWpApiServiceProvider extends ServiceProvider {
 
             $endpoint = $this->app['config']->get('wp-api.endpoint');
             $auth     = $this->app['config']->get('wp-api.auth');
-            $client   = $this->app->make('GuzzleHttp\Client');
+            $client   = $this->app->make('\Remic\GuzzleCache\Facades\GuzzleCache');
+            $client = $client::client(['base_url' => $endpoint]);
             
             return new WpApi($endpoint, $client, $auth);
 
