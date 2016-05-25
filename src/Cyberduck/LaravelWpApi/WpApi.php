@@ -85,6 +85,12 @@ class WpApi
                 $query['auth'] = $this->auth;
             }
 
+            if(\Request::has('cache') && \Request::get('cache') == 'skip')
+            {
+                \Cache::flush('guzzlecache_'.$this->endpoint . $method . '?' . http_build_query($query['query']));
+                \Cache::flush('guzzle_body_'.$this->endpoint . $method . '?' . http_build_query($query['query']));
+            }
+
             $response = $this->client->get($this->endpoint . $method, $query);
 
             $return = [
